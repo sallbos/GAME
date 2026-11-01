@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>SALEH GAMING — 30 Playable Browser Games</title>
+    <meta name="description" content="SALEH GAMING is a high-speed browser gaming library containing 30 fully functional playable games across Action, Puzzle, Sports, Adventure, and Classic categories. Play instantly on desktop, tablet, and mobile with zero downloads.">
+    <meta name="keywords" content="SALEH GAMING, browser games, free online games, HTML5 canvas games, PWA gaming, arcade, snake, chess, 2048, breakout, flappy bird, racing">
+    <meta name="author" content="SALEH GAMING">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="SALEH GAMING — 30 Playable Browser Games">
+    <meta property="og:description" content="Play 30 original games directly in your browser. Fully optimized for desktop keyboard, tablets, and smartphones. Installable PWA.">
+    <meta property="og:image" content="./icons/icon-512x512.png">
+    <meta property="og:site_name" content="SALEH GAMING">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SALEH GAMING — 30 Playable Browser Games">
+    <meta name="twitter:description" content="Play 30 original games directly in your browser. Touch and keyboard controls. Zero downloads.">
+    <meta name="twitter:image" content="./icons/icon-512x512.png">
+
+    <!-- PWA & Mobile Configuration -->
+    <link rel="manifest" href="./manifest.json">
+    <meta name="theme-color" content="#080808">
+    <meta name="background-color" content="#080808">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="SALEH GAMING">
+    <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="./icons/favicon.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/game-ui.css">
+</head>
+<body>
+
+    <!-- Professional Splash Screen -->
+    <div id="pwa-splash-screen" class="pwa-splash-screen" aria-hidden="true">
+        <div class="splash-content">
+            <img src="./icons/icon-192x192.png" alt="SALEH GAMING Logo" class="splash-logo">
+            <h2 class="splash-title">SALEH GAMING</h2>
+            <p class="splash-subtitle">30 PLAYABLE BROWSER GAMES</p>
+            <div class="splash-loader">
+                <div class="splash-loader-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header Navigation -->
+    <header class="arcade-header">
+        <div class="header-container">
+            <a href="./index.html" class="logo-group" title="SALEH GAMING Home">
+                <span class="logo-badge">30 GAMES</span>
+                <span class="logo-title">SALEH GAMING</span>
+            </a>
+            <div class="header-actions">
+                <div class="header-stat" id="stats-counter">
+                    <span>30</span> Games Available &nbsp;|&nbsp; <span>0</span> High Scores
+                </div>
+                <button class="install-app-btn" id="install-app-btn" title="Install SALEH GAMING on your device" style="display: none;">📲 INSTALL APP</button>
+                <button class="icon-btn" id="mute-btn" title="Toggle Sound">🔊</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <h1 class="hero-title">BROWSER GAMING LIBRARY</h1>
+        <p class="hero-subtitle">
+            Play 30 original games directly in your browser. Optimized for desktop keyboard, tablets, and mobile touchscreen. Zero downloads, 100% offline ready.
+        </p>
+    </section>
+
+    <!-- Controls & Category Filters -->
+    <section class="controls-bar" aria-label="Game search and category filters">
+        <div class="search-box-container">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search games by name or number (e.g. Snake, Chess, 2048)..." autocomplete="off" spellcheck="false">
+            <button id="search-clear-btn" class="search-clear-btn" title="Clear search" style="display: none;">✕</button>
+        </div>
+
+        <nav class="category-pills" aria-label="Game categories">
+            <button class="category-pill active" data-category="all">
+                <span>ALL GAMES</span>
+                <span class="pill-count">30</span>
+            </button>
+            <button class="category-pill" data-category="action">
+                <span>💥 ACTION & ARCADE</span>
+                <span class="pill-count">8</span>
+            </button>
+            <button class="category-pill" data-category="puzzle">
+                <span>🧠 PUZZLE & BRAIN</span>
+                <span class="pill-count">7</span>
+            </button>
+            <button class="category-pill" data-category="sports">
+                <span>🏎️ RACING & SPORTS</span>
+                <span class="pill-count">6</span>
+            </button>
+            <button class="category-pill" data-category="adventure">
+                <span>🏰 ADVENTURE & STRATEGY</span>
+                <span class="pill-count">5</span>
+            </button>
+            <button class="category-pill" data-category="classic">
+                <span>🎯 CLASSIC & FUN</span>
+                <span class="pill-count">4</span>
+            </button>
+            <button class="category-pill" data-category="favorites">
+                <span>❤️ FAVORITES</span>
+            </button>
+        </nav>
+    </section>
+
+    <!-- Games Grid Catalog -->
+    <main class="games-grid-container" id="main-catalog">
+        <div id="games-grid" class="games-grid" role="region" aria-label="Games catalog">
+            <!-- Dynamically populated 30 cards via JavaScript -->
+        </div>
+    </main>
+
+    <!-- Platform Footer -->
+    <footer class="arcade-footer">
+        <div class="footer-container">
+            <div class="footer-brand-section">
+                <div class="logo-group">
+                    <span class="logo-badge">30 GAMES</span>
+                    <span class="logo-title">SALEH GAMING</span>
+                </div>
+                <p class="footer-tagline">
+                    Original HTML5, CSS3, and Canvas games library. Fast, responsive, offline-ready Progressive Web App deployed on Cloudflare Pages.
+                </p>
+                <div class="footer-badges">
+                    <span class="footer-pill">⚡ Cloudflare Pages</span>
+                    <span class="footer-pill">📱 PWA Installable</span>
+                    <span class="footer-pill">📶 100% Offline Ready</span>
+                    <span class="footer-pill">🎧 Web Audio Synthesizer</span>
+                </div>
+            </div>
+
+            <div class="footer-nav-section">
+                <div class="footer-column">
+                    <h4 class="footer-col-title">CATEGORIES</h4>
+                    <ul class="footer-links">
+                        <li><a href="#action" class="footer-cat-link" data-category="action">💥 Action & Arcade (8)</a></li>
+                        <li><a href="#puzzle" class="footer-cat-link" data-category="puzzle">🧠 Puzzle & Brain (7)</a></li>
+                        <li><a href="#sports" class="footer-cat-link" data-category="sports">🏎️ Racing & Sports (6)</a></li>
+                        <li><a href="#adventure" class="footer-cat-link" data-category="adventure">🏰 Adventure & Strategy (5)</a></li>
+                        <li><a href="#classic" class="footer-cat-link" data-category="classic">🎯 Classic & Fun (4)</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-col-title">QUICK PLAY</h4>
+                    <ul class="footer-links">
+                        <li><a href="#game-snake" class="footer-game-link" data-game="snake">🐍 Snake</a></li>
+                        <li><a href="#game-chess" class="footer-game-link" data-game="chess">♟️ Chess</a></li>
+                        <li><a href="#game-car_racing" class="footer-game-link" data-game="car_racing">🏎️ Car Racing</a></li>
+                        <li><a href="#game-game_2048" class="footer-game-link" data-game="game_2048">🔢 2048</a></li>
+                        <li><a href="#game-tower_defense" class="footer-game-link" data-game="tower_defense">🏰 Tower Defense</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 <strong>SALEH GAMING</strong>. All 30 games are original interactive browser implementations. Built with Vanilla JavaScript, HTML5 Canvas, and CSS3.</p>
+        </div>
+    </footer>
+
+    <!-- Interactive Game Player Modal -->
+    <div id="game-modal" class="game-modal" role="dialog" aria-modal="true">
+        <!-- Modal Toolbar -->
+        <div class="game-modal-header">
+            <div class="game-header-info">
+                <span id="modal-badge" class="game-header-badge">🎮</span>
+                <div>
+                    <h2 id="modal-title" class="game-header-title">Game Title</h2>
+                    <span id="modal-category" class="game-header-category">Category</span>
+                </div>
+            </div>
+            <div class="game-header-tools">
+                <div id="difficulty-container" style="display: none;">
+                    <select id="difficulty-select" class="difficulty-select" title="Difficulty">
+                        <option value="Normal">Normal</option>
+                    </select>
+                </div>
+                <button id="restart-btn" class="modal-tool-btn" title="Restart Game">🔄 RESTART</button>
+                <button id="modal-audio-btn" class="modal-tool-btn" title="Toggle Sound">🔊</button>
+                <button id="fullscreen-btn" class="modal-tool-btn" title="Toggle Fullscreen">⛶ FULLSCREEN</button>
+                <button id="close-modal-btn" class="close-modal-btn" title="Close Game">✕</button>
+            </div>
+        </div>
+
+        <!-- Modal Player Body -->
+        <div class="game-modal-body">
+            <!-- Canvas Container -->
+            <div id="canvas-wrapper" class="game-canvas-wrapper">
+                <canvas id="game-canvas" class="game-canvas"></canvas>
+
+                <!-- Game Over Overlay -->
+                <div id="game-over-overlay" class="game-over-overlay">
+                    <h3 id="game-over-title" class="game-over-title">GAME OVER</h3>
+                    <div id="game-over-score" class="game-over-score">FINAL SCORE: 0</div>
+                    <div id="game-over-high" class="game-over-highscore">BEST SCORE: 0</div>
+                    <div class="game-over-actions">
+                        <button id="overlay-restart-btn" class="btn-restart">PLAY AGAIN 🔄</button>
+                        <button id="overlay-close-btn" class="btn-close">BACK TO HUB</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Virtual On-Screen Mobile Touch Controls -->
+            <div id="touch-controls-container" class="touch-controls-container">
+                <!-- Dynamically populated touch buttons (D-Pad, Jump, Action) -->
+            </div>
+
+            <!-- Instructions & Controls Guide -->
+            <div class="game-info-panel">
+                <div class="info-row">
+                    <span class="info-label">HOW TO PLAY:</span>
+                    <span id="modal-instructions" class="info-value">Instructions text...</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">CONTROLS:</span>
+                    <span id="modal-controls" class="info-value">Controls text...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Core Audio & Controls Scripts -->
+    <script src="js/audio.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/controls.js"></script>
+
+    <!-- 30 Independent Playable Game Engines -->
+    <!-- Action & Arcade Games (1 - 8) -->
+    <script src="js/games/01-snake.js"></script>
+    <script src="js/games/02-flappy.js"></script>
+    <script src="js/games/03-space-shooter.js"></script>
+    <script src="js/games/04-breakout.js"></script>
+    <script src="js/games/05-pong.js"></script>
+    <script src="js/games/06-zombie-survival.js"></script>
+    <script src="js/games/07-ninja-adventure.js"></script>
+    <script src="js/games/08-stickman-fighter.js"></script>
+
+    <!-- Puzzle & Brain Games (9 - 15) -->
+    <script src="js/games/09-tic-tac-toe.js"></script>
+    <script src="js/games/10-memory-cards.js"></script>
+    <script src="js/games/11-2048.js"></script>
+    <script src="js/games/12-minesweeper.js"></script>
+    <script src="js/games/13-chess.js"></script>
+    <script src="js/games/14-checkers.js"></script>
+    <script src="js/games/15-sudoku.js"></script>
+
+    <!-- Racing & Sports Games (16 - 21) -->
+    <script src="js/games/16-car-racing.js"></script>
+    <script src="js/games/17-basketball.js"></script>
+    <script src="js/games/18-penalty-shootout.js"></script>
+    <script src="js/games/19-endless-runner.js"></script>
+    <script src="js/games/20-bike-racing.js"></script>
+    <script src="js/games/21-pool-billiards.js"></script>
+
+    <!-- Adventure & Strategy Games (22 - 26) -->
+    <script src="js/games/22-platform-jumper.js"></script>
+    <script src="js/games/23-maze-escape.js"></script>
+    <script src="js/games/24-tower-defense.js"></script>
+    <script src="js/games/25-dungeon-explorer.js"></script>
+    <script src="js/games/26-survival-island.js"></script>
+
+    <!-- Classic & Fun Games (27 - 30) -->
+    <script src="js/games/27-rock-paper-scissors.js"></script>
+    <script src="js/games/28-whack-a-mole.js"></script>
+    <script src="js/games/29-fruit-slicer.js"></script>
+    <script src="js/games/30-bubble-shooter.js"></script>
+
+    <!-- Games Registry, PWA & Master App -->
+    <script src="js/games-registry.js"></script>
+    <script src="js/pwa.js"></script>
+    <script src="js/app.js"></script>
+
+    <!-- iOS Install Guide Modal -->
+    <div id="ios-install-modal" class="ios-install-modal" role="dialog" aria-modal="true">
+        <div class="ios-modal-content">
+            <div class="ios-modal-header">
+                <h3>Install SALEH GAMING</h3>
+                <button id="close-ios-modal" class="close-ios-btn" title="Close">✕</button>
+            </div>
+            <p>To install SALEH GAMING as a standalone app on your iPhone or iPad:</p>
+            <ol class="ios-steps">
+                <li>Tap the <strong>Share</strong> button <span class="share-icon">⎋</span> in Safari's bottom toolbar.</li>
+                <li>Scroll down and tap <strong>Add to Home Screen ➕</strong>.</li>
+                <li>Tap <strong>Add</strong> in the top-right corner to finish!</li>
+            </ol>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>404 — Level Not Found | SALEH GAMING</title>
+    <meta name="theme-color" content="#080808">
+    <meta name="background-color" content="#080808">
+    <link rel="icon" type="image/png" href="./icons/favicon.png">
+    <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Orbitron:wght@700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #080808;
+            --bg-card: #0f172a;
+            --border-color: #1e293b;
+            --accent-cyan: #00e5ff;
+            --accent-purple: #a855f7;
+            --accent-pink: #ec4899;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --font-heading: 'Orbitron', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            text-align: center;
+            overflow-x: hidden;
+        }
+        .error-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 48px 32px;
+            max-width: 560px;
+            width: 100%;
+            box-shadow: 0 0 50px rgba(0, 229, 255, 0.15), 0 0 30px rgba(168, 85, 247, 0.1);
+            position: relative;
+        }
+        .glitch-code {
+            font-family: var(--font-heading);
+            font-size: clamp(72px, 14vw, 110px);
+            font-weight: 900;
+            line-height: 1;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple), var(--accent-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 12px;
+            letter-spacing: 4px;
+            text-shadow: 0 0 30px rgba(0, 229, 255, 0.4);
+        }
+        .brand-subtitle {
+            font-family: var(--font-heading);
+            font-size: 15px;
+            color: var(--accent-cyan);
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+        }
+        .error-title {
+            font-family: var(--font-heading);
+            font-size: 22px;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+        }
+        .error-desc {
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 32px;
+        }
+        .btn-hub {
+            background: linear-gradient(135deg, #0284c7, var(--accent-cyan));
+            color: #000;
+            font-family: var(--font-heading);
+            font-weight: 900;
+            font-size: 14px;
+            padding: 16px 32px;
+            border-radius: 14px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            letter-spacing: 1px;
+            transition: all 0.25s ease;
+            box-shadow: 0 0 24px rgba(0, 229, 255, 0.4);
+        }
+        .btn-hub:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 35px rgba(0, 229, 255, 0.6);
+        }
+        .footer-note {
+            margin-top: 24px;
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <div class="error-card">
+        <div class="brand-subtitle">SALEH GAMING</div>
+        <div class="glitch-code">404</div>
+        <h1 class="error-title">LEVEL NOT FOUND</h1>
+        <p class="error-desc">
+            The coordinates you requested do not exist in this sector.
+            <br>
+            All <strong>30 games</strong> in the SALEH GAMING library are waiting back at the main arcade hub.
+        </p>
+        <a href="./index.html" class="btn-hub">RETURN TO ARCADE HUB 🎮</a>
+        <p class="footer-note">Cloudflare Pages High-Speed Deployment</p>
+    </div>
+</body>
+</html>

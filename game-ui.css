@@ -1,0 +1,442 @@
+/**
+ * ARCADE 30 - Game Player & Virtual Touch Controls Styles
+ */
+
+/* Game Modal Viewport */
+.game-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(7, 10, 19, 0.95);
+    backdrop-filter: blur(16px);
+    z-index: 1000;
+    display: none;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.game-modal.active {
+    display: flex;
+}
+
+/* Modal Header Bar */
+.game-modal-header {
+    background: rgba(15, 23, 42, 0.95);
+    border-bottom: 1px solid var(--border-color);
+    padding: 12px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.game-header-info {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.game-header-badge {
+    font-size: 24px;
+}
+
+.game-header-title {
+    font-family: var(--font-heading);
+    font-size: 20px;
+    font-weight: 800;
+    color: #fff;
+}
+
+.game-header-category {
+    font-size: 11px;
+    color: var(--accent-cyan);
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+}
+
+.game-header-tools {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.difficulty-select {
+    background: var(--bg-main);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    font-family: var(--font-heading);
+    font-size: 12px;
+    padding: 6px 12px;
+    border-radius: 8px;
+    outline: none;
+    cursor: pointer;
+}
+
+.difficulty-select:focus {
+    border-color: var(--accent-cyan);
+}
+
+.modal-tool-btn {
+    background: var(--bg-main);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 6px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: var(--font-heading);
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+}
+
+.modal-tool-btn:hover {
+    border-color: var(--accent-cyan);
+    color: var(--accent-cyan);
+}
+
+.close-modal-btn {
+    background: #ef4444;
+    border: none;
+    color: #fff;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+}
+
+.close-modal-btn:hover {
+    transform: scale(1.1);
+}
+
+/* Modal Content Layout */
+.game-modal-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Canvas Viewport */
+.game-canvas-wrapper {
+    position: relative;
+    background: #000;
+    border: 2px solid var(--border-color);
+    border-radius: 14px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.8), 0 0 15px rgba(56, 189, 248, 0.15);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+}
+
+.game-canvas {
+    display: block;
+    max-width: 100%;
+    max-height: 68vh;
+    object-fit: contain;
+    touch-action: none;
+}
+
+/* Game Info & Controls Guide */
+.game-info-panel {
+    margin-top: 18px;
+    width: 100%;
+    max-width: 800px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.info-row {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    font-size: 13px;
+}
+
+.info-label {
+    font-family: var(--font-heading);
+    color: var(--accent-cyan);
+    font-weight: 700;
+    min-width: 110px;
+}
+
+.info-value {
+    color: var(--text-secondary);
+}
+
+/* Touch Controls Container */
+.touch-controls-container {
+    width: 100%;
+    max-width: 600px;
+    margin-top: 14px;
+    display: none;
+}
+
+.touch-controls-overlay {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px 16px;
+    background: rgba(15, 23, 42, 0.7);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* D-Pad Layout */
+.touch-dpad {
+    display: grid;
+    grid-template-rows: 44px 44px 44px;
+    grid-template-columns: 44px 44px 44px;
+    gap: 4px;
+    justify-items: center;
+    align-items: center;
+}
+
+.dpad-middle {
+    grid-column: 1 / span 3;
+    display: flex;
+    gap: 48px;
+    align-items: center;
+}
+
+.dpad-center {
+    width: 44px;
+    height: 44px;
+}
+
+.touch-btn {
+    background: rgba(30, 41, 59, 0.9);
+    border: 2px solid rgba(56, 189, 248, 0.4);
+    color: #fff;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    font-family: var(--font-heading);
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    transition: background 0.1s, transform 0.1s;
+}
+
+.touch-btn:active,
+.touch-btn.active {
+    background: var(--accent-cyan);
+    color: #000;
+    transform: scale(0.92);
+}
+
+.touch-group-horizontal {
+    display: flex;
+    gap: 12px;
+}
+
+.touch-actions-group {
+    display: flex;
+    gap: 12px;
+}
+
+.action-main {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: rgba(2, 132, 199, 0.85);
+    border-color: #38bdf8;
+    font-size: 14px;
+}
+
+.action-sub {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: rgba(225, 29, 72, 0.85);
+    border-color: #f43f5e;
+    font-size: 14px;
+}
+
+.touch-action-full {
+    width: 100%;
+}
+
+.touch-btn-huge {
+    width: 100%;
+    height: 54px;
+    background: linear-gradient(135deg, #0284c7, #38bdf8);
+    border: none;
+    border-radius: 12px;
+    font-family: var(--font-heading);
+    font-size: 16px;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+.touch-actions-fighter {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+}
+
+.combat-btn {
+    width: 68px;
+    height: 44px;
+    font-size: 11px;
+    border-radius: 8px;
+}
+
+.combat-btn.special {
+    background: rgba(234, 179, 8, 0.85);
+    border-color: #facc15;
+    color: #000;
+    font-weight: 900;
+}
+
+.touch-actions-bike {
+    display: flex;
+    gap: 12px;
+}
+
+.bike-btn {
+    width: 78px;
+    height: 52px;
+    font-size: 12px;
+}
+
+.bike-btn.gas {
+    background: rgba(34, 197, 94, 0.85);
+    border-color: #4ade80;
+}
+
+.bike-btn.brake {
+    background: rgba(239, 68, 68, 0.85);
+    border-color: #f87171;
+}
+
+/* Game Over Dialog Overlay */
+.game-over-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 23, 42, 0.92);
+    backdrop-filter: blur(8px);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+    padding: 24px;
+    text-align: center;
+}
+
+.game-over-overlay.active {
+    display: flex;
+}
+
+.game-over-title {
+    font-family: var(--font-heading);
+    font-size: 32px;
+    font-weight: 900;
+    color: #ef4444;
+    margin-bottom: 12px;
+    letter-spacing: 2px;
+    text-shadow: 0 0 20px rgba(239, 68, 68, 0.4);
+}
+
+.game-over-title.win {
+    color: #22c55e;
+    text-shadow: 0 0 20px rgba(34, 197, 94, 0.4);
+}
+
+.game-over-score {
+    font-family: var(--font-heading);
+    font-size: 22px;
+    color: #fff;
+    margin-bottom: 6px;
+}
+
+.game-over-highscore {
+    font-family: var(--font-heading);
+    font-size: 14px;
+    color: var(--accent-yellow);
+    margin-bottom: 24px;
+}
+
+.game-over-actions {
+    display: flex;
+    gap: 14px;
+}
+
+.btn-restart {
+    background: linear-gradient(135deg, #0284c7, #38bdf8);
+    color: #fff;
+    border: none;
+    font-family: var(--font-heading);
+    font-size: 14px;
+    font-weight: 800;
+    padding: 10px 24px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.btn-restart:hover {
+    transform: scale(1.05);
+}
+
+.btn-close {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    color: #fff;
+    font-family: var(--font-heading);
+    font-size: 14px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .touch-controls-container {
+        display: block;
+    }
+    .game-modal-header {
+        padding: 10px 14px;
+    }
+    .game-header-title {
+        font-size: 16px;
+    }
+    .game-canvas {
+        max-height: 52vh;
+    }
+}

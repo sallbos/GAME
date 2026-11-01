@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Offline Mode — SALEH GAMING</title>
+    <link rel="manifest" href="./manifest.json">
+    <meta name="theme-color" content="#080808">
+    <meta name="background-color" content="#080808">
+    <link rel="icon" type="image/png" href="./icons/favicon.png">
+    <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Orbitron:wght@700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #080808;
+            --bg-card: #0f172a;
+            --border-color: #1e293b;
+            --accent-cyan: #00e5ff;
+            --accent-pink: #ec4899;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --font-heading: 'Orbitron', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            text-align: center;
+        }
+        .offline-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 40px 30px;
+            max-width: 520px;
+            width: 100%;
+            box-shadow: 0 0 35px rgba(0, 229, 255, 0.15);
+        }
+        .offline-icon {
+            font-size: 64px;
+            margin-bottom: 16px;
+            filter: drop-shadow(0 0 16px rgba(236, 72, 153, 0.4));
+        }
+        .brand-name {
+            font-family: var(--font-heading);
+            font-size: 24px;
+            font-weight: 900;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+            letter-spacing: 2px;
+        }
+        .offline-title {
+            font-family: var(--font-heading);
+            font-size: 18px;
+            color: #ef4444;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+        }
+        .offline-desc {
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+        .offline-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #0284c7, var(--accent-cyan));
+            color: #000;
+            font-family: var(--font-heading);
+            font-weight: 800;
+            font-size: 14px;
+            padding: 14px 24px;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .btn-primary:hover {
+            transform: scale(1.03);
+            box-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
+        }
+        .btn-secondary {
+            background: #1e293b;
+            color: var(--text-primary);
+            font-family: var(--font-heading);
+            font-size: 13px;
+            padding: 12px 20px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .btn-secondary:hover {
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
+        }
+    </style>
+</head>
+<body>
+    <div class="offline-card">
+        <div class="offline-icon">📡</div>
+        <div class="brand-name">SALEH GAMING</div>
+        <h1 class="offline-title">OFFLINE MODE</h1>
+        <p class="offline-desc">
+            You appear to be offline or experiencing connection issues.
+            <br><br>
+            All <strong>30 games</strong> in the SALEH GAMING library are cached and ready to play directly without internet access!
+        </p>
+        <div class="offline-actions">
+            <a href="index.html" class="btn-primary">ENTER OFFLINE GAMES HUB 🎮</a>
+            <button onclick="window.location.reload()" class="btn-secondary">RETRY CONNECTION 🔄</button>
+        </div>
+    </div>
+</body>
+</html>
